@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Кездейсоқ Топтарға Бөлу</title>
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            text-align: center; 
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        #container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            display: inline-block;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        #result { 
+            margin-top: 20px; 
+            font-size: 18px;
+        }
+        .group {
+            margin: 20px auto;
+            padding: 10px;
+            border: 2px solid #333; 
+            display: inline-block;
+            border-radius: 5px;
+            width: 300px;
+            background: white;
+            text-align: center;
+        }
+        .group img {
+            width: 100%;
+            border-radius: 5px;
+        }
+        .group-title {
+            font-size: 20px;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            background-color: orange;
+            color: black;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: darkorange;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h2>10 адамды кездейсоқ 2 топқа бөлу</h2>
+        <button onclick="divideIntoGroups()">Топтарға бөлу</button>
+        <div id="result"></div>
+    </div>
+
+    <script>
+        function divideIntoGroups() {
+            let people = ["Асылзат", "Ақнұр", "Таңнұр", "Дильнара", "Айдын", "Жанэл", "Айгерім", "Ардақ", "Ақерке", "Арай"];
+            people = people.sort(() => Math.random() - 0.5); // Кездейсоқ араластыру
+            
+            let group1 = people.slice(0, 5);
+            let group2 = people.slice(5, 10);
+
+            document.getElementById("result").innerHTML = 
+                `<div class="group">
+                    <div class="group-title">Молюскалар</div>
+                    <img src="team1.jpg" alt="1-топ суреті">
+                    <p>${group1.join(", ")}</p>
+                 </div>
+                 <div class="group">
+                    <div class="group-title">Буынаяқтылар</div>
+                    <img src="team2.jpg" alt="2-топ суреті">
+                    <p>${group2.join(", ")}</p>
+                 </div>`;
+        }
+    </script>
+</body>
+</html>
